@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '../header';
+import Footer from '../footer';
 
 const MainPage = () => {
 
@@ -12,6 +13,7 @@ const MainPage = () => {
       subtitle={['We makes every day full of energy and taste', 'Want to try our beans?']}
       button="More"/>
     <h2>MainPage</h2>
+    <Footer />
   </>
   )
 }

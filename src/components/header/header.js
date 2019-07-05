@@ -23,17 +23,19 @@ const Header = (props) => {
   const Style = {
     "background" : `#000000 url(${bg[page]}) center center /cover no-repeat`
   };
-  console.log(Style)
+
   return (
     <header className="header" style={Style}>
       <Container>
         <Row>
           <Nav color="white"/>
         </Row>
-          <h1 className="header__title">{title}</h1>
+        <div className="header__cover">
+          <h1 className={`header__title ${page}`}>{title}</h1>
           {beansLogo ? <BeansLogo color={beansLogo} /> : ''}
-          {subtitle.map((item, index) => <div className="header__subtitle" key={index}>{item}</div>)}
+          {subtitle ? subtitle.map((item, index) => <div className="header__subtitle" key={index}>{item}</div>) : ''}
           {button ? <div className="header__btn">{button}</div> : ''}
+        </div>
       </Container>
     </header>
   )

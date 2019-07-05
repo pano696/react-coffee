@@ -1,4 +1,8 @@
 import MainPage from './mainPage';
+import CoffeePage from './coffeePage';
+import PleasurePage from './pleasurePage';
 export {
-  MainPage
+  MainPage,
+  CoffeePage,
+  PleasurePage
 }
