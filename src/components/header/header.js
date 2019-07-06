@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container, Row} from 'reactstrap';
+import {Container, Row, Col} from 'reactstrap';
 import Nav from '../nav';
 import BeansLogo from '../beansLogo';
 
@@ -18,26 +18,32 @@ const Header = (props) => {
     pleasure: pleasureBg
   }
 
-  const {page, title, beansLogo, subtitle, button} = props;
+  const {pageType, page, title, beansLogo, subtitle, button} = props;
 
   const Style = {
     "background" : `#000000 url(${bg[page]}) center center /cover no-repeat`
   };
 
   return (
-    <header className="header" style={Style}>
+    <div className={pageType} style={Style}>
       <Container>
-        <Row>
-          <Nav color="white"/>
+      <Row>
+          <Col lg="6">
+            <header>
+              <Nav position="header" />
+            </header>
+          </Col>
         </Row>
-        <div className="header__cover">
-          <h1 className={`header__title ${page}`}>{title}</h1>
-          {beansLogo ? <BeansLogo color={beansLogo} /> : ''}
-          {subtitle ? subtitle.map((item, index) => <div className="header__subtitle" key={index}>{item}</div>) : ''}
-          {button ? <div className="header__btn">{button}</div> : ''}
-        </div>
+        <Row>
+          <Col lg={{size: 10, offset: 1}}>
+            <h1 className={`title-big`}>{title}</h1>
+            {beansLogo ? <BeansLogo color={beansLogo} /> : ''}
+            {subtitle ? subtitle.map((item, index) => <div className={`${pageType}__subtitle`} key={index}>{item}</div>) : ''}
+            {button ? <div className={`${pageType}__btn`}>{button}</div> : ''}
+          </Col>
+        </Row>
       </Container>
-    </header>
+    </div>
   )
 }
 

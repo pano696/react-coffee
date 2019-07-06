@@ -9,31 +9,27 @@ import logoBlack from './logo_black.svg';
 const Nav = (props) => {
 
   const logo = {
-    white: logoWhite,
-    black: logoBlack
-  }
-  const fontColor = {
-    white: 'white',
-    black: 'black'
+    header: logoWhite,
+    footer: logoBlack
   }
 
-  const {color} = props;
+  const {position} = props;
 
   return (
-    <ul className="nav">
-      <li className="nav__item">
-        <Link to="/"  style={{"color" : fontColor[color]}}>
-          <img src={logo[color]} alt="Coffee house" />
+    <ul className={position}>
+      <li className={`${position}__item`}>
+        <Link to="/" >
+          <img src={logo[position]} alt="Coffee house" />
           Coffee house
         </Link>
       </li>
-      <li className="nav__item">
-        <Link to="/coffee" className="nav-item" style={{"color" : fontColor[color]}}>
+      <li className={`${position}__item`}>
+        <Link to="/coffee" className="nav-item">
           Our coffee
         </Link>
       </li>
-      <li className="nav__item">
-        <Link to="/pleasure" className="nav-item" style={{"color" : fontColor[color]}}>
+      <li className={`${position}__item`}>
+        <Link to="/pleasure" className="nav-item">
           For your pleasure
         </Link>
       </li>
