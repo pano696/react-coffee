@@ -1,12 +1,21 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Container, Row, Col} from 'reactstrap';
 import Header from '../header';
 import BeansLogo from '../beansLogo';
 import './mainPage.sass';
+import DbConsumer from '../dbConsumer';
 
 
 
-const MainPage = () => {
+const MainPage = (props) => {
+
+  const {dbService} = props;
+
+  useEffect(() => {
+    dbService.getBestsellers()
+      .then(response => console.log(response))
+      .catch(error => console.log(error))
+  })
 
   return (
   <>
@@ -32,4 +41,4 @@ const MainPage = () => {
   )
 }
 
-export default MainPage;
+export default  DbConsumer()(MainPage);
