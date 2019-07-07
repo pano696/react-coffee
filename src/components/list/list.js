@@ -1,8 +1,19 @@
 import React from 'react';
+import {Row, Col} from 'reactstrap';
+import ListItem from '../listItem';
 
-const List = () => {
+const List = (props) => {
+
+  const {type} = props;
+
   return (
-    <h2>List</h2>
+    <Row>
+      <Col lg={{size: 10, offset: 1}}>
+        <div className={`${type}__wrapper`}>
+
+        </div>
+      </Col>
+    </Row>
   )
 }
 
