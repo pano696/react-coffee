@@ -4,7 +4,7 @@ import ListItem from '../listItem';
 
 const List = (props) => {
 
-  const {type, items} = props;
+  const {type, items, onItemSelected} = props;
 
   return (
     <Row>
@@ -15,7 +15,8 @@ const List = (props) => {
               return <ListItem
                         key={item.name}
                         type={type}
-                        item={item} />
+                        item={item}
+                        onItemSelected={onItemSelected} />
             })
           }
         </div>

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {Col} from 'reactstrap';
+import {Container, Row, Col} from 'reactstrap';
+import {withRouter} from 'react-router-dom';
 import BeansLogo from '../beansLogo';
 import DbConsumer from '../dbConsumer';
 import Spiner from '../spinner';
@@ -35,29 +36,40 @@ class ShopItemBody extends Component {
     if (this.state.error) return <Error />
 
     return (
-      <>
-        <Col lg={{size: 5}} xs={{offset:1}}>
-            <img className="shop__girl" src={this.state.thisItem.url} alt={this.state.thisItem.name} />
-        </Col>
-        <Col lg={{size: 4}}>
-            <div className="title">About it</div>
-              <BeansLogo color="black" />
-            <div className="shop__point">
-                <span>Country:</span>
-                {this.state.thisItem.country}
-            </div>
-            <div className="shop__point">
-                <span>Description:</span>
-                {this.state.thisItem.description}
-            </div>
-            <div className="shop__point">
-                <span>Price:</span>
-                <span className="shop__point-price">{this.state.thisItem.price}</span>
-            </div>
-        </Col>
-      </>
+      <Container>
+        <Row>
+          <Col lg={{size: 5}} xs={{offset:1}}>
+              <img className="shop__girl" src={this.state.thisItem.url} alt={this.state.thisItem.name} />
+          </Col>
+          <Col lg={{size: 4}}>
+              <div className="title">About it</div>
+                <BeansLogo color="black" />
+              <div className="shop__point">
+                  <span>Country:</span>
+                  {this.state.thisItem.country}
+              </div>
+              <div className="shop__point">
+                  <span>Description:</span>
+                  {this.state.thisItem.description}
+              </div>
+              <div className="shop__point">
+                  <span>Price:</span>
+                  <span className="shop__point-price">{this.state.thisItem.price}</span>
+              </div>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={{size: 12}}>
+            <button
+              className="shop__point-back"
+              onClick={() => this.props.history.goBack()}>
+              Back
+            </button>
+          </Col>
+        </Row>
+      </Container>
     )
   }
 }
 
-export default DbConsumer()(ShopItemBody);
+export default DbConsumer()(withRouter(ShopItemBody));

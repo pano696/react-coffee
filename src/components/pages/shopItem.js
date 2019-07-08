@@ -1,6 +1,5 @@
 import React from 'react';
 import Header from '../header';
-import {Container, Row} from 'reactstrap';
 import './coffeePage.sass';
 import ShopItemBody from '../shopItemBody';
 
@@ -15,11 +14,7 @@ const ShopItem = (props) => {
       page="coffee"
       title={name}/>
     <section className="shop">
-        <Container>
-            <Row>
-              <ShopItemBody name={name}/>
-            </Row>
-        </Container>
+        <ShopItemBody name={name}/>
     </section>
   </>
   )

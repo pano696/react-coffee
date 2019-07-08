@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import DbConsumer from '../dbConsumer';
+import {withRouter} from 'react-router-dom';
 import {bestsellersRequested, bestsellersLoaded, bestsellersError} from '../../actions/';
 import paper from './paper.jpg';
 import List from '../list';
@@ -10,7 +11,7 @@ import './best.sass';
 
 const Best = (props) => {
 
-  const {bestsellers, loading, error} = props;
+  const {bestsellers, loading, error, history} = props;
 
   if (loading) return <Spiner />
   if (error || bestsellers.length === 0) return <Error />
@@ -23,7 +24,10 @@ const Best = (props) => {
             <div className="title">Our best</div>
             <List
               type="best"
-              items={bestsellers} />
+              items={bestsellers}
+              onItemSelected={(name) => {
+                history.push(`/coffee/${name}`)
+              }}  />
         </div>
     </section>
   )
@@ -62,4 +66,4 @@ const mapDispatchToProps = {
 };
 
 
-export default DbConsumer()(connect(mapStateToProps, mapDispatchToProps)(WithData(Best)));
+export default DbConsumer()(connect(mapStateToProps, mapDispatchToProps)(withRouter(WithData(Best))));
