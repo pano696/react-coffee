@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Container, Row, Col} from 'reactstrap';
 import Header from '../header';
 import BeansLogo from '../beansLogo';
