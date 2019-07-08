@@ -17,7 +17,8 @@ const MainPage = () => {
       title="Everything You Love About Coffee"
       beansLogo="white"
       subtitle={['We makes every day full of energy and taste', 'Want to try our beans?']}
-      button="More"/>
+      button="More"
+      buttonLink="/coffee"/>
     <section className="about">
         <Container>
             <Row>

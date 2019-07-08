@@ -16,7 +16,8 @@ const Goods = (props) => {
   return (
             <List
               type="shop"
-              items={goods} />
+              items={goods}
+              onItemSelected={() => {}}/>
   )
 }
 

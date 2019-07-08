@@ -9,7 +9,7 @@ import Error from '../error';
 
 const Shop = (props) => {
 
-  const {coffee, loading, error, history} = props;
+  const {coffee, loading, error, history, filterCountry, filterWord} = props;
 
   if (loading) return <Spiner />
   if (error || coffee.length === 0) return <Error />
@@ -18,6 +18,8 @@ const Shop = (props) => {
             <List
               type="shop"
               items={coffee}
+              filterCountry={filterCountry}
+              filterWord={filterWord}
               onItemSelected={(name) => {
                 history.push(name)
               }} />

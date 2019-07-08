@@ -2,6 +2,7 @@ import React from 'react';
 import {Container, Row, Col} from 'reactstrap';
 import Nav from '../nav';
 import BeansLogo from '../beansLogo';
+import {withRouter} from 'react-router-dom';
 
 import './header.sass';
 import mainBg from './main_bg.jpg';
@@ -18,7 +19,7 @@ const Header = (props) => {
     pleasure: pleasureBg
   }
 
-  const {pageType, page, title, beansLogo, subtitle, button} = props;
+  const {pageType, page, title, beansLogo, subtitle, button, buttonLink, history} = props;
 
   const Style = {
     "background" : `#000000 url(${bg[page]}) center center /cover no-repeat`
@@ -39,7 +40,7 @@ const Header = (props) => {
             <h1 className={`title-big`}>{title}</h1>
             {beansLogo ? <BeansLogo color={beansLogo} /> : ''}
             {subtitle ? subtitle.map((item, index) => <div className={`${pageType}__subtitle`} key={index}>{item}</div>) : ''}
-            {button ? <div className={`${pageType}__btn`}>{button}</div> : ''}
+            {button ? <div className={`${pageType}__btn`} onClick={() => history.push(buttonLink)}>{button}</div> : ''}
           </Col>
         </Row>
       </Container>
@@ -47,4 +48,4 @@ const Header = (props) => {
   )
 }
 
-export default Header;
+export default withRouter(Header);

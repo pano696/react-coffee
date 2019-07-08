@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Header from '../header';
 import {Container, Row, Col} from 'reactstrap';
 import BeansLogo from '../beansLogo';
@@ -8,6 +8,9 @@ import Shop from '../shop';
 import './coffeePage.sass';
 
 const CofeePage = () => {
+
+  const [filterCountry, setFilterCountry] = useState('');
+  const [filterWord, setFilterWord] = useState('');
 
   return (
   <>
@@ -38,7 +41,12 @@ const CofeePage = () => {
                 <Col lg={{size: 4}} xs={{offset:2}}>
                     <form action="#" className="shop__search">
                         <label className="shop__search-label" htmlFor="filter">Looking for</label>
-                        <input id="filter" type="text" placeholder="start typing here..." className="shop__search-input" />
+                        <input
+                          id="filter"
+                          type="text"
+                          placeholder="start typing here..."
+                          className="shop__search-input"
+                          onChange={event => setFilterWord(event.target.value)}/>
                     </form>
                 </Col>
                 <Col lg={{size: 4}}>
@@ -47,14 +55,17 @@ const CofeePage = () => {
                             Or filter
                         </div>
                         <div className="shop__filter-group">
-                            <button className="shop__filter-btn">Brazil</button>
-                            <button className="shop__filter-btn">Kenya</button>
-                            <button className="shop__filter-btn">Columbia</button>
+                            <button className="shop__filter-btn" onClick={() => setFilterCountry(undefined)}>X</button>
+                            <button className="shop__filter-btn" onClick={() => setFilterCountry('Brazil')}>Brazil</button>
+                            <button className="shop__filter-btn" onClick={() => setFilterCountry('Kenya')}>Kenya</button>
+                            <button className="shop__filter-btn" onClick={() => setFilterCountry('Columbia')}>Columbia</button>
                         </div>
                     </div>
                 </Col>
             </Row>
-            <Shop />
+            <Shop
+              filterCountry={filterCountry}
+              filterWord={filterWord}/>
         </Container>
     </section>
   </>
