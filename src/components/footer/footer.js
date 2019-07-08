@@ -10,7 +10,7 @@ const Footer = () => {
     <footer>
       <Container>
         <Row>
-          <Col lg={{size: 6, offset: 3}}>
+          <Col>
             <Nav position="footer" />
           </Col>
         </Row>

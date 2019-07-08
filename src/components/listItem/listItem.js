@@ -2,13 +2,13 @@ import React from 'react';
 
 const ListItem = (props) => {
 
-  const {type, title, imgLink, price} = props;
+  const {type, item} = props;
 
   return (
     <div className={`${type}__item`}>
-      <img src={imgLink} alt={title} />
-      <div className={`${type}__item-title`}>{title}</div>
-      <div className={`${type}__item-price`}>{price}$</div>
+      <img src={item.url} alt={item.name} />
+      <div className={`${type}__item-title`}>{item.name}</div>
+      <div className={`${type}__item-price`}>{item.price}$</div>
     </div>
   )
 }
