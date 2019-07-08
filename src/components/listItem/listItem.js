@@ -8,7 +8,7 @@ const ListItem = (props) => {
     <div className={`${type}__item`}>
       <img src={item.url} alt={item.name} />
       <div className={`${type}__item-title`}>{item.name}</div>
-      <div className={`${type}__item-price`}>{item.price}$</div>
+      <div className={`${type}__item-price`}>{item.price}</div>
     </div>
   )
 }
