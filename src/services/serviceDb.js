@@ -22,4 +22,10 @@ export default class ServiceDb {
   getBestsellers = async () => {
     return await this.getResource('/bestsellers/')
   }
+
+  getItem = async (name) => {
+    const response = await this.getResource('/coffee/');
+    const index = response.findIndex(item => item.name === name);
+    return response[index];
+  }
 }

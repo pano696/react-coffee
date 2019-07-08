@@ -13,7 +13,7 @@ const List = (props) => {
           {
             items.map((item, index) => {
               return <ListItem
-                        key={item.id}
+                        key={item.name}
                         type={type}
                         item={item} />
             })
