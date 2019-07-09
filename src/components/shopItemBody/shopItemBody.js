@@ -21,12 +21,12 @@ class ShopItemBody extends Component {
       .catch((error) => console.log(error))
       this.setState({
         thisItem: res,
-        loading: false
+        load: false
       })
   }
 
-  componentDidMount() {
-    this.setState({loading: true})
+  componentWillMount() {
+    this.setState({load: true})
     this.loadData();
   }
 
