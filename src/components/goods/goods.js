@@ -8,7 +8,7 @@ import Error from '../error';
 
 const Goods = (props) => {
 
-  const {goods, loading, error} = props;
+  const {goods, loading, error, onItemSelected} = props;
 
   if (loading) return <Spiner />
   if (error || goods.length === 0) return <Error />
@@ -17,7 +17,7 @@ const Goods = (props) => {
             <List
               type="shop"
               items={goods}
-              onItemSelected={() => {}}/>
+              onItemSelected={onItemSelected}/>
   )
 }
 

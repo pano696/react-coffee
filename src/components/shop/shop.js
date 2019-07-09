@@ -21,7 +21,7 @@ const Shop = (props) => {
               filterCountry={filterCountry}
               filterWord={filterWord}
               onItemSelected={(name) => {
-                history.push(name)
+                history.push(`coffee/${name}`)
               }} />
   )
 }

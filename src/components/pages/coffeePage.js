@@ -38,7 +38,7 @@ const CofeePage = () => {
             </Row>
             <Line />
             <Row >
-                <Col lg={{size: 4}} xs={{offset:2}}>
+                <Col lg={{size: 5}} xs={{offset:1}}>
                     <form action="#" className="shop__search">
                         <label className="shop__search-label" htmlFor="filter">Looking for</label>
                         <input
@@ -49,7 +49,7 @@ const CofeePage = () => {
                           onChange={event => setFilterWord(event.target.value)}/>
                     </form>
                 </Col>
-                <Col lg={{size: 4}}>
+                <Col lg={{size: 5}}>
                     <div className="shop__filter">
                         <div className="shop__filter-label">
                             Or filter

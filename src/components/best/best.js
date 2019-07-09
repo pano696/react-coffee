@@ -26,7 +26,7 @@ const Best = (props) => {
               type="best"
               items={bestsellers}
               onItemSelected={(name) => {
-                history.push(`${name}`)
+                history.push(`coffee/${name}`)
               }}  />
         </div>
     </section>
